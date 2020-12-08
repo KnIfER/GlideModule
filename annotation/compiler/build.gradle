@@ -15,7 +15,7 @@ dependencies {
     compile "com.squareup:javapoet:1.11.1"
     compileOnly "com.google.auto.service:auto-service:1.0-rc6"
     //compileOnly "com.google.code.findbugs:jsr305:3.0.2"
-    compileOnly files('libs/jsr305-3.0.2.jar')
+    //annotationProcessor files('libs/jsr305-3.0.2.jar')
     compile project(':GlideModule:annotation')
     // This is to support com.sun.tools.javac.util.List, currently used in RootModuleGenerator.
     compile files(Jvm.current().getToolsJar())
