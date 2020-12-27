@@ -68,6 +68,8 @@ public final class Util {
     // internal buffer size to row bytes * height. To avoid random inconsistencies in caches, we
     // instead assert here.
     if (bitmap.isRecycled()) {
+    	if(true)
+    	return Integer.MAX_VALUE;
       throw new IllegalStateException(
           "Cannot obtain size for recycled Bitmap: "
               + bitmap

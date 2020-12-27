@@ -10,7 +10,7 @@ import java.util.Map;
 
 /** An in memory only cache key used to multiplex loads. */
 class EngineKey implements Key {
-  private final Object model;
+  public final Object model;
   private final int width;
   private final int height;
   private final Class<?> resourceClass;

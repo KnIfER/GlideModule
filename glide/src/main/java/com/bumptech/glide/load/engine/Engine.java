@@ -312,20 +312,28 @@ public class Engine
     if (!isMemoryCacheable) {
       return null;
     }
+	  Log.e("fatal", "loadFromMemory__==");
 
     EngineResource<?> active = loadFromActiveResources(key);
+	  Log.e("fatal", "active__key=="+(active==null?"  ":active.key)+"  ::"+active);
     if (active != null) {
       if (VERBOSE_IS_LOGGABLE) {
         logWithTimeAndKey("Loaded resource from active resources", startTime, key);
       }
+		if(active.key instanceof EngineKey && ((EngineKey)active.key).model instanceof ResourceKeyOutdating && ((ResourceKeyOutdating)((EngineKey)active.key).model).isOutDated()) {
+	  	activeResources.deactivate(active.key);
+	  } else
       return active;
     }
 
     EngineResource<?> cached = loadFromCache(key);
+	  Log.e("fatal", "cached__key=="+(cached==null?"  ":cached.key)+"  ::"+cached);
     if (cached != null) {
       if (VERBOSE_IS_LOGGABLE) {
         logWithTimeAndKey("Loaded resource from cache", startTime, key);
       }
+      if(cached.key instanceof EngineKey && ((EngineKey)cached.key).model instanceof ResourceKeyOutdating && ((ResourceKeyOutdating)((EngineKey)cached.key).model).isOutDated()) {
+	  } else
       return cached;
     }
 

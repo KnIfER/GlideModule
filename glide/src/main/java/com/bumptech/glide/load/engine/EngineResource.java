@@ -15,7 +15,7 @@ class EngineResource<Z> implements Resource<Z> {
   private final boolean isRecyclable;
   private final Resource<Z> resource;
   private final ResourceListener listener;
-  private final Key key;
+  public final Key key;
 
   private int acquired;
   private boolean isRecycled;
